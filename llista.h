@@ -6,11 +6,13 @@
 typedef struct{
     int element;
     int seg;
+    int ant;
 }Node;
 
 typedef struct{
     int primer;
-    int anterior;
+    int ultim;
+    int cursor;
 }Llista_Bi;
 
 Llista_Bi   LLISTABI_crea(void);
