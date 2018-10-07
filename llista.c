@@ -74,3 +74,58 @@ void LLISTABI_esborrar(Llista_Bi * l) {
         }
     }
 }
+int LLISTABI_consultar(Llista_Bi l){
+    return l.nodes[l.cursor].element;
+}
+
+void LLISTABI_vesInici(Llista_Bi * l){
+    l->cursor = l->primer;
+}
+
+void LLISTABI_vesFinal(Llista_Bi * l){
+    l->cursor = l->ultim;
+}
+
+void LLISTABI_avancar(Llista_Bi * l){
+    l->cursor = l->nodes[l->cursor].seg;
+}
+
+void LLISTABI_retrocedir(Llista_Bi * l){
+    l->cursor = l->nodes[l->cursor].ant;
+}
+
+int LLISTABI_inici(Llista_Bi l){
+    if(l.cursor == l.primer){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+int LLISTABI_final(Llista_Bi l){
+    if(l.cursor == l.ultim){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+int LLISTABI_plena(Llista_Bi l){
+    if(l.nodes[l.ultim].element =! -1){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+int LLISTABI_buida(Llista_Bi l){
+    if(l.nodes[l.primer].element == -1){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
