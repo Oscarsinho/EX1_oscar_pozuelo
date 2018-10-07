@@ -1,6 +1,13 @@
-cmake_minimum_required(VERSION 3.10)
-project(EX1_oscar_pozuelo C)
+all: llista
 
-set(CMAKE_C_STANDARD 99)
+main.o: main.c llista.h
+  gcc main.c -c -Wall -Wextra
+  
+llista.o: llista.c llista.h
+  gcc llista.c -c -Wall -Wextra
 
-add_executable(EX1_oscar_pozuelo main.c)
+llista: llista.o main.o
+  gcc main.o llista.o -o llista.exe -Wall -Wextra
+  
+clean: 
+  rm *.o
